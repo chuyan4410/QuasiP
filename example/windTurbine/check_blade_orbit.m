@@ -5,7 +5,12 @@ if nargin<1, order=5; end
 if nargin<2, location='peak'; end
 if nargin<3, steps=256; end
 m=build_blade(varargin{:}); n=m.n; nc=m.nc;
-bd=coco_bd_read(sprintf('%s_H%d',m.runPrefix,order));
+runName=sprintf('%s_H%d',m.runPrefix,order);
+if endsWith(m.runPrefix,'_A60')
+    [~,found]=coco_fname(runName,'bd.mat');
+    if ~found, runName=strrep(runName,'_A60_H','_H'); end
+end
+bd=coco_bd_read(runName);
 freq=coco_bd_col(bd,'k_OM1'); amps=blade_branch_amplitude(bd,m);
 if strcmp(location,'peak'), [~,i]=max(amps);
 elseif strcmp(location,'start'), i=1;

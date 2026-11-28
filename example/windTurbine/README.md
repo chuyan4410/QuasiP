@@ -12,7 +12,7 @@ frc = run_blade_frc(5,direction,amplitude,speed);
 check_blade_orbit(5,'peak',256,direction,amplitude,speed)
 ```
 
-只改 `direction` 即可切换工况。第一个参数为谐波阶数；省略方向时默认 `flap`，省略幅值时三个方向均取数值 60。`run_blade_frc(5)` 和原来的 flap 算例相同。CSV、PNG 和可编辑的 MATLAB FIG 保存于本目录，COCO 检查点位于 `data/<运行名>`。文件名区分方向、转速、幅值和谐波阶数，默认幅值 60 沿用省略幅值标记的命名。
+只改 `direction` 即可切换工况。第一个参数为谐波阶数；省略方向时默认 `flap`，省略幅值时三个方向均取数值 60。`run_blade_frc(5)` 和原来的 flap 算例相同。CSV、PNG 和可编辑的 MATLAB FIG 保存于本目录，COCO 检查点位于 `data/<运行名>`。文件名区分方向、转速、幅值和谐波阶数，默认幅值 60 也标记为 `A60`。
 
 | 方向 | 沿参考弧长施加的激励 | 叶尖输出（相对离心平衡构型） | 扫频中心 |
 |---|---|---|---|

@@ -45,9 +45,11 @@ result=table(freq(:),amp(:),'VariableNames',{'omega_rad_s',...
 assert(max(result.omega_rad_s)>=bounds(2)-2e-6,...
     'Continuation did not reach the upper frequency.');
 writetable(result,fullfile(folder,[runName '.csv']));
-fig=figure('Visible','off'); plot(freq,amp,'LineWidth',1.6);
-xlabel('Excitation frequency (rad/s)'); 
-ylabel(sprintf('Tip %s amplitude (%s)',m.direction,m.unit));
+fig=figure('Visible','off'); plot(freq,amp,'LineWidth',1.5);
+xlabel('Excitation frequency [rad/s]','FontSize',13); 
+ylabel(sprintf('Tip %s amplitude [%s]',m.direction,m.unit),'FontSize',13);
+set(gca, 'FontSize', 12);
+box off;
 grid on; 
 exportgraphics(fig,fullfile(folder,[runName '.png']),'Resolution',180);
 set(fig,'Visible','on');

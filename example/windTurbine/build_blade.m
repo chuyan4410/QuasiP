@@ -98,9 +98,8 @@ else
         'Mode %d is not %s dominated at the tip.',mode,direction);
 end
 m.direction=char(direction); m.mode=mode;
-% Preserve the original name for the default 60 N/m flap runs.
-m.runPrefix=sprintf('%s_%srpm',direction,strrep(num2str(rpm,15),'.','p'));
-if amplitude~=60, m.runPrefix=[m.runPrefix '_A' strrep(num2str(amplitude,17),'.','p')]; end
+m.runPrefix=sprintf('%s_%srpm_A%s',direction,strrep(num2str(rpm,15),'.','p'), ...
+    strrep(num2str(amplitude,17),'.','p'));
 m.omega=imag(p(pos(mode))); m.tip=tip; m.q=q; m.lm=lm; m.R=R;
 m.speed=speed; m.loadTangent=loadTangent; m.F=F+loadTangent*q;
 m.K=K; m.M=M; m.G=G; m.D=sparse(D); m.H=H;
